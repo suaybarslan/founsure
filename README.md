@@ -43,4 +43,4 @@ This will install the library into your machine's lib directory, most probably /
 
 The configuration process assumes shared objects are searched for in /usr/local/lib. If this is not the case on your system, you can specify a search path at configuration time. Alternatively if you receive the following error when you try to execute one of the main functions of the library to do encoding or decoding, setting the LD_LIBRARY_PATH to installed directory (For instance /usr/local/lib) and exporting it might help. Otherwise, let me know the specifics of the problem, I will give my own shot.
 
--> error while loading shared libraries: libfounsure.so.2: cannot open shared object file: No such file or directory
+*italic* error while loading shared libraries: libfounsure.so.2: cannot open shared object file: No such file or directory
