@@ -12,5 +12,5 @@ Here are the reasons why "Founsure" is developped and exists:
 ![Image of 3D coding structure of Founsure]
 (https://github.com/suaybarslan/founsure/blob/master/Images/founsure_3d.png)
 
-![Founsure](/images/founsure_3d.png)
-Format: ![Founsure 1.0 3D code structure](http://http://www.suaybarslan.com/founsure.html)
+![Founsure](https://github.com/suaybarslan/founsure/blob/master/Images/founsure_3d.png)
+Format: ![Founsure 1.0 3D code structure](http://www.suaybarslan.com/founsure.html)
