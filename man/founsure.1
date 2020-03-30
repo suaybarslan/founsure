@@ -1,0 +1,78 @@
+.TH FOUNSURE 1.0 "March 20, 2020" "Version 1.0"
+.SH NAME
+founsure \- Fountain code based erasure coding library
+.RS 
+This library is intended to provide a multi-functional redundancy generation alternative to other open source libraries based on graph-based erasure codes. This library will be supported for as long as needed. Improvements shall be done along the way. Please see the related technical papers for details/performance. Use it at your own risk and please do cite if you make use of any part of this library either in your research or commercial products. 
+.SH DESCRIPTION 
+Currently, there are four main operations supported by Founsure 1.0. 
+.B founsureEnc 
+takes an input file and encodes it and produces a folder Coding/ under which the coded data is partitioned into s disk drives. Default distribution is striped data. See the technical report for more details.
+.B founsureDec 
+takes an input file name and decodes the data available in Coding/ directory based on the available metadata.
+.B founsureRep
+takes an input file name and scans through the lost drive data and runs either a conventional repair or fast/efficient repair process depending on the availability of <filename>_check.data
+.B genChecks
+takes an input file name and generates check #2, #3 information from the code graph and writes it in <filename>.check.data file. This function can also be used for update operations along with founsureRep function when we use '-e' flag. See thechnical report for more details.
+.B simDisk
+takes the same parameters of founsureEnc and sets up a simulation environment and goes over combinations of failures to see whether the code with provided parameters is able to recover or not. This functon is quite useful for setting the right policy/reliabiity metric for the encoded data.
+.SH SYNOPSIS
+.B FounsureEnc
+[\fB\-f\fR <filename> \fB\-k\fR <data block length> \fB\-n\fR <# of coded symbols>  \fB\-t\fR <symbol size> \fB\-d\fR <Distribution name> \fB\-p\fR <precode name> \fB\-s\fR <number of drives> \fR] 
+.PP
+.B FounsureDec
+[\fB\-f\fR <filename> \fR]
+.PP
+.B FounsureRep 
+[\fB\-f\fR <filename> \fR] (For repair/update process)
+.PP
+.B genChecks
+[\fB\-f\fR <filename> \fB\-m\fR <0/1> \fB\-e\fR <number of drive info to (+)add/(-)take away> \fR] (For repair/update process)
+.PP
+.B simDisk
+[\fB\-f\fR <number of failures> \fB\-x\fR <filesize> \fB\-k\fR <data block length> \fB\-n\fR <# of coded symbols> \fB\-d\fR <Distribution name> \fB\-p\fR <precode name> \fB\-s\fR <number of drives>  \fR]
+.SH OPTIONS 
+.TP
+.B You can get information about options by typing "FounsureEnc -h" or "FounsureDec -h". 
+.IP \-f
+Requires a filename to process (for encoding or decoding)
+.IP \-k 
+Sets the number of source symbols for the fountain code. Typically it is greater than 1000 for decent performance.
+.IP \-n
+Sets the number of total number of coded symbols in the fountain code. Typically it is greater than k 
+.IP \-t
+Sets the number of bytes in a coding symbol. This parameter can also be used to adjust the buffersize.
+.IP \-d
+Sets the degree distribution of the LT code. Currently Robust Soliton Degree (RSD) and Finite Raptor (FiniteRaptor) degree distributions are supported. Next version shall support importable/configurable degree distributions.
+.IP \-p
+Sets the precode if concatenated fountain codes are used. This can be either "None" or "ArrayLDPC". "ArrayLDPC" uses a systematic Array LDPC precode with parameters i,j, and a prime number prim. These parameters are automatically determined by the target precode rate.
+.IP \-c
+Sets the target precode rate. Default value is 0.97. 
+.IP \-g
+Sets some of the internal options of founsure 1.0 for speed/performance. For example, "fast" operation mode uses compiler optimization flags and memory alignments for speed. This mode also uses selection with replacement at the expense of litle code performance.
+.IP \-s
+Sets the number of disks over which the encoded data shall be distributed.
+.IP \-m
+Sets the number of threads to work on the encoding/decoding/repair/update process. This flag is used by genChecks utility function to modify the metadata as well.
+.IP \-e
+Sets the number of drive info to be erased/generated due to an update process.
+.IP \-i 
+Sets the data distribution policy.
+.IP \-h
+Prints the entire help menu for more usage information.
+.IP \-v
+Verbose printing for encoder/decoder parameter information. 
+.SH FILES
+.I Coding/
+.RS
+Folder that the 
+.BR FounsureDec 
+produces and creates files to be stored in "s" distinct storage devices (disks). 
+.RE
+.I Coding/<filename>_metadata.<extension>
+.RS 
+Under default data distribution policy, this file contains metadata file contentsfor 
+.BR FounsureDec
+to initialize and complete decoding operation accurately.
+.SH AUTHOR
+Suayb S. Arslan, MEF University, Istanbul, Turkey
+.BR <arslans@mef.edu.tr>
