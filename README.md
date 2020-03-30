@@ -8,3 +8,6 @@ Here are the reasons why "Founsure" is developped and exists:
 - [x] Founsure is based on fountain codes which are not space-optimal i.e., non-zero coding overhead. However, if you want your erasure code (even if you use space-optimal codes such as Reed-Solomon codes) to have efficient repair capabilities, it is unavoidable to have non-zero coding overhead. So some overhead is actually necessary for storage applications.
 - [x] Founsure is exposed in non-sytematic form and thus natural encryption is embedded inside the code (supported by seeds).
 - [x] Founsure is flexible i.e., if one wants to have a combination of erasure coding and replication, it is possible with founsure to have that by just setting the right parameters. Ofcourse this would require experience and familarity with the internals of the theory & library.
+
+![Image of 3D coding structure of Founsure]
+(https://github.com/suaybarslan/founsure/blob/master/Images/founsure_3d.png)
