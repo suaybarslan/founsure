@@ -2,7 +2,7 @@
 An Erasure Code Library with Efficient Repair and Update Features: Version 1.0
 
 # Overview and Objective
-Founsure 1.0 is the very first version of a totally new erasure coding library using Intel's SIMD and multi-core architectures based on simple aligned XOR operations and fountain coding. The details of fountain coding is beyond the scope of this text. I encourage you to take a look at here. Founsure does not use specific SIMD instructions, it rather pays attention to memory alignment and leaves the assembly instructions to be optimed by the "magical" gcc/g++ compiler (with appropriate optimization flags). This library is expected to have comparable performance to other open source alternatives and yet shall provide distinguishably better repair and rebuilt performance which seem to be the main stream focus of erasure coding community nowadays. The version 1.0 has only two major functions "founsureEnc" and "founsureDec" for encoding and decoding, respectively. In other words, the function "founsureRep" for efficient repair is still missing. So the library is not COMPLETE and the documentation is probably not at a fulfilling stage at the moment. Given the time constraint i am doing my best to get them upto date as much as i can.
+Founsure 1.0 is the first version of a totally new erasure coding library using Intel's SIMD and multi-core architectures based on simple aligned XOR operations and fountain coding. The details of fountain coding is beyond the scope of this text. I encourage you to take a look at my [introductory paper](https://arxiv.org/pdf/1402.6016.pdf). Founsure does not use specific SIMD instructions, it rather pays attention to memory alignment and leaves the assembly instructions to be optimized by the "magical" gcc/g++ compiler (with appropriate optimization flags). This library is expected to have comparable performance to other open source alternatives and yet shall provide distinguishably better repair and rebuilt performance which seem to be the main stream focus of erasure coding community nowadays in a distributed setting. The version 1.0 has three major functions "founsureEnc", "founsureDec" and "founsureRep" for encoding, decoding and repair/update respectively. 
 
 Here are the reasons why "Founsure" is developped and exists:
 - [x] Founsure is based on fountain codes which are not space-optimal i.e., non-zero coding overhead. However, if you want your erasure code (even if you use space-optimal codes such as Reed-Solomon codes) to have efficient repair capabilities, it is unavoidable to have non-zero coding overhead. So some overhead is actually necessary for storage applications.
@@ -10,7 +10,7 @@ Here are the reasons why "Founsure" is developped and exists:
 - [x] Founsure is flexible i.e., if one wants to have a combination of erasure coding and replication, it is possible with founsure to have that by just setting the right parameters. Ofcourse this would require experience and familarity with the internals of the theory & library.
 
 ![Founsure](https://github.com/suaybarslan/founsure/blob/master/Images/founsure_3d.png)
-Format: ![Founsure 1.0 3D code structure](http://www.suaybarslan.com/founsure.html)
+![Founsure 1.0 3D code structure](http://www.suaybarslan.com/founsure.html)
 
 Founsure 1.0 implements an LT code and a concatenated fountain code (a precode + LT code). More specifically, the precode is based on a systematic binary array codes whose parity check matrix exhibits sparseness as the block length gets large. The precode is concatenated by an LT code based on different degree and selection distributions. More precode support shall be provided in future releases. Also custom degree/selection distributions will be part of the library for flexibility reasons.
 
@@ -20,6 +20,9 @@ There are also utility functions provided with the library to better use the lib
 
 - [x] FounsureEnc: This function takes a file and produces multiple segments of data. The file itself does not appear in any of these segments.
 - [x] FounsureDec: This function assumes  a ./Coding directory and a subset of encoded file segments to be available and decodes and re-generates the original file.
+- [x] FounsureRep: Repair engine that also requires a Coding directory with enough number of files and
+** fixes/repairs one or more data chunks should they have been erased, corrupted or flagged as unavailable.
+** generates extra coding chunks should a code update has been requested. System update is triggered if data reliability is decreased/degraded over time or increased due to equipment replacements.
 - [x] DiskSim: This utility function can be used to find fault tolerance of Founsure in terms of the number of failed disks that can be tolerated. This function is of great value to map founsure parameters such as k, n to number of disks and numer of tolerable disk failures and provide a way to understand fault tolerance numbers as in MDS codes (such as Jerasure or Intel's ISA libraries which are based on RS code implementions).
 
 # Installation
