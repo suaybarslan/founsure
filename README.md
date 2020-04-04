@@ -47,3 +47,16 @@ This will install the library into your machine's lib directory, most probably /
 The configuration process assumes shared objects are searched for in /usr/local/lib. If this is not the case on your system, you can specify a search path at configuration time. Alternatively if you receive the following error when you try to execute one of the main functions of the library to do encoding or decoding, setting the LD_LIBRARY_PATH to installed directory (For instance /usr/local/lib) and exporting it might help. Otherwise, let me know the specifics of the problem, I will give my own shot.
 
 *error while loading shared libraries: libfounsure.so.2: cannot open shared object file: No such file or directory*
+
+## Reference
+
+If you find this code useful in your work, we kindly request that you cite the following [paper](https://arxiv.org/abs/1702.07409):
+* Suayb S. Arslan (2017) Founsure 1.0: An Erasure Code Library with Efficient Repair and Update Features. arXiv preprint arXiv:1702.07409.
+```
+@article{arslan2017founsure,
+  title={Founsure 1.0: An erasure code library with efficient repair and update features},
+  author={Arslan, {\c{S}}uayb {\c{S}}},
+  journal={arXiv preprint arXiv:1702.07409},
+  year={2017}
+}
+```
