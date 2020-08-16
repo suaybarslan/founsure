@@ -3,8 +3,7 @@
 #                   Maslak, Sariyer, Istanbul.
 # Calculation of frequencies of recovery.
 # Let n disks and f of n are failed.
-# This script computes m out of comb(n,f) 
-# that can be tolerated by the founsure. 
+# This script computes m out of comb(n,f) that can be tolerated by the founsure. 
 
 from itertools import combinations
 import os
