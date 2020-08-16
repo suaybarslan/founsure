@@ -1,5 +1,5 @@
 /* *
- * Copyright (c) 2015, Suayb S. Arslan
+ * Copyright (c) 2020, Suayb S. Arslan
  * MEF University, Ayazaga, Maslak, IST/TURKEY.
  * All rights reserved.
  *
