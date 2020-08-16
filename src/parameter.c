@@ -1,5 +1,5 @@
 /* *
- * Copyright (c) 2015, Suayb S. Arslan
+ * Copyright (c) 2020, Suayb S. Arslan
  * MEF University, Ayazaga, Maslak, IST/TURKEY.
  * All rights reserved.
  *
@@ -52,9 +52,9 @@ int AdjustParamWithPrecode(encoder_t* EncoderPre, int filesize, double target_cr
   int K = 0, N 	= 1;
   int array_k 	= OGIG;
   int array_j 	= OGIG;
-  int prim 	= MIN_PRIME;
-  int blocks 	= 1;
-  int tries 	= 0;
+  int prim 	    = MIN_PRIME;
+  int blocks 	  = 1;
+  int tries 	  = 0;
   int totaliter = 0;
   int diff_th 	= DIFF_TH;
   double rate_th = RRATE_TH;
