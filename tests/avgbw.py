@@ -1,10 +1,9 @@
 #!/usr/bin/env python
 # Suayb S. Arslan @ MEF University, 2020.
 #                   Maslak, Sariyer, Istanbul.
-# Calculation of frequencies of recovery.
+# Calculation of average repair bandwidth.
 # Let n disks and f of n are failed.
-# This script computes m out of comb(n,f) 
-# that can be tolerated by the founsure. 
+# This script computes number of symbols needed for exact repair for each failure combination.
 
 from itertools import combinations
 import os
