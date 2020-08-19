@@ -81,7 +81,7 @@ For automated (and more detailed functionality) testing, we provide aself-contai
 python founsure_unittest.py
 ```
 
-**For more details on the comprehensive testing of the library, please see [the user manual]**(https://github.com/suaybarslan/founsure/blob/master/tests/Founsure_1_0_User_Manual.pdf). 
+**For more details on the comprehensive testing of the library, please see [the user manual].**(https://github.com/suaybarslan/founsure/blob/master/tests/Founsure_1_0_User_Manual.pdf)
 
 
 # Reference
