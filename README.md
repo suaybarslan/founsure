@@ -1,9 +1,9 @@
 ![Founsure](https://github.com/suaybarslan/founsure/blob/master/Images/Founsure10.png)
 # Founsure 1.0
-An Erasure Code Library with Efficient Repair and Update Features: Version 1.0
+<ins> An Erasure Code Library with Efficient Repair and Update Features: Version 1.0 </ins>
 
 # Overview and Objective
-Founsure 1.0 is the first version of a totally new erasure coding library using Intel's SIMD and multi-core architectures based on simple aligned XOR operations and fountain coding. The details of fountain coding is beyond the scope of this text. I encourage you to take a look at my [introductory paper](https://arxiv.org/pdf/1402.6016.pdf). Founsure does not use specific SIMD instructions, it rather pays attention to memory alignment and leaves the assembly instructions to be optimized by the "magical" gcc/g++ compiler (with appropriate optimization flags). This library is expected to have comparable performance to other open source alternatives and yet shall provide distinguishably better repair and rebuilt performance which seem to be the main stream focus of erasure coding community nowadays in a distributed setting. The version 1.0 has three major functions "founsureEnc", "founsureDec" and "founsureRep" for encoding, decoding and repair/update respectively. 
+**Founsure 1.0** is the first version of a totally new erasure coding library using Intel's SIMD and multi-core architectures based on simple aligned XOR operations and fountain coding. The details of fountain coding is beyond the scope of this text. I encourage you to take a look at my [introductory paper](https://arxiv.org/pdf/1402.6016.pdf). Founsure does not use specific SIMD instructions, it rather pays attention to memory alignment and leaves the assembly instructions to be optimized by the "magical" gcc/g++ compiler (with appropriate optimization flags). This library is expected to have comparable performance to other open source alternatives and yet shall provide distinguishably better repair and rebuilt performance which seem to be the main stream focus of erasure coding community nowadays in a distributed setting. The version 1.0 has three major functions "founsureEnc", "founsureDec" and "founsureRep" for encoding, decoding and repair/update respectively. 
 
 Here are the reasons why "Founsure" is developped and exists:
 - [x] Founsure is based on fountain codes which are not space-optimal i.e., non-zero coding overhead. However, if you want your erasure code (even if you use space-optimal codes such as Reed-Solomon codes) to have efficient repair capabilities, it is unavoidable to have non-zero coding overhead. So some overhead is actually necessary for storage applications.
@@ -18,13 +18,13 @@ Founsure 1.0 implements an LT code and a concatenated fountain code (a precode +
 There are four major functions of Founsure: encoding, decoding, repair and update.
 There are also utility functions provided with the library to better use the library for different use cases. For instance, simDisk utility function has nothing to do with a user file and can be used to help system admins provide required reliability with their own system.
 
-- [x] FounsureEnc: This function takes a file and produces multiple segments of data. The file itself does not appear in any of these segments.
-- [x] FounsureDec: This function assumes  a ./Coding directory and a subset of encoded file segments to be available and decodes and re-generates the original file.
-- [x] FounsureRep: Repair engine that also requires a Coding directory with enough number of files and
+- [x] **FounsureEnc**: This function takes a file and produces multiple segments of data. The file itself does not appear in any of these segments.
+- [x] **FounsureDec**: This function assumes  a ./Coding directory and a subset of encoded file segments to be available and decodes and re-generates the original file.
+- [x] **FounsureRep**: Repair engine that also requires a Coding directory with enough number of files and
 ** fixes/repairs one or more data chunks should they have been erased, corrupted or flagged as unavailable.
 ** generates extra coding chunks should a code update has been requested. System update is triggered if data reliability is decreased/degraded over time or increased due to equipment replacements.
-- [x] DiskSim: This utility function can be used to find fault tolerance of Founsure in terms of the number of failed disks that can be tolerated. This function is of great value to map founsure parameters such as k, n to number of disks and numer of tolerable disk failures and provide a way to understand fault tolerance numbers as in MDS codes (such as Jerasure or Intel's ISA libraries which are based on RS code implementions).
-- [x] genChecks: This utility function is crucial for two different important functionalities: (1) fast/efficient repair/rebuild of data and (2) seemless on-the-fly update. 
+- [x] **DiskSim**: This utility function can be used to find fault tolerance of Founsure in terms of the number of failed disks that can be tolerated. This function is of great value to map founsure parameters such as k, n to number of disks and numer of tolerable disk failures and provide a way to understand fault tolerance numbers as in MDS codes (such as Jerasure or Intel's ISA libraries which are based on RS code implementions).
+- [x] **genChecks**: This utility function is crucial for two different important functionalities: (1) fast/efficient repair/rebuild of data and (2) seemless on-the-fly update. 
 
 # Installation
 Installation from the source: There are four directories of source code:
@@ -38,10 +38,10 @@ If you do not have autotools installed, you can simply install it using:
 sudo yum install autotools autoconf (for centos), sudo apt-get install autotools-dev autoconf (for ubuntu)
 
 Make sure you run autreconf before you run the usual installation procedure outline below.
-- [x] autoreconf --force --install
-- [x] ./configure
-- [x] make
-- [x] sudo make install
+- [x] **autoreconf --force --install**
+- [x] **./configure**
+- [x] **make**
+- [x] **sudo make install**
 
 This will install the library into your machine's lib directory, most probably /usr/local/lib.
 
