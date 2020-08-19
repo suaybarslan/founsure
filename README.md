@@ -50,12 +50,13 @@ The configuration process assumes shared objects are searched for in /usr/local/
 *error while loading shared libraries: libfounsure.so.2: cannot open shared object file: No such file or directory*
 
 # Tests
-### Encode Example
+#### Encode Example
+The following command will encode a test file testfile.txt with k=500 data chunks with each chunk occupying t=512 bytes. The encoder generates n=1000 coding chunks using $d=$`FiniteDist' degree distribution and p=`ArrayLDPC' precoding. Finally, generated chunks are striped/written to $s=10$ distinct files for default disk/drive allocation under Coding directory.
 ```bash
 founsureEnc-f  testfile.txt  -k  500  -n  1000  -t  512  -d’FiniteDist’ -p ’ArrayLDPC’ -s 10 -v
 ```
 
-## Reference
+# Reference
 
 If you find this code useful in your work, we kindly request that you cite the following [paper](https://arxiv.org/abs/1702.07409):
 * Suayb S. Arslan (2017) Founsure 1.0: An Erasure Code Library with Efficient Repair and Update Features. arXiv preprint arXiv:1702.07409.
