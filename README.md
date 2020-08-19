@@ -11,7 +11,6 @@ Here are the reasons why "Founsure" is developped and exists:
 - [x] Founsure is flexible i.e., if one wants to have a combination of erasure coding and replication, it is possible with founsure to have that by just setting the right parameters. Ofcourse this would require experience and familarity with the internals of the theory & library.
 
 ![Founsure](https://github.com/suaybarslan/founsure/blob/master/Images/founsure_3d.png)
-![Founsure 1.0 3D code structure](http://www.suaybarslan.com/founsure.html)
 
 Founsure 1.0 implements an LT code and a concatenated fountain code (a precode + LT code). More specifically, the precode is based on a systematic binary array codes whose parity check matrix exhibits sparseness as the block length gets large. The precode is concatenated by an LT code based on different degree and selection distributions. More precode support shall be provided in future releases. Also custom degree/selection distributions will be part of the library for flexibility reasons.
 
@@ -25,6 +24,7 @@ There are also utility functions provided with the library to better use the lib
 ** fixes/repairs one or more data chunks should they have been erased, corrupted or flagged as unavailable.
 ** generates extra coding chunks should a code update has been requested. System update is triggered if data reliability is decreased/degraded over time or increased due to equipment replacements.
 - [x] DiskSim: This utility function can be used to find fault tolerance of Founsure in terms of the number of failed disks that can be tolerated. This function is of great value to map founsure parameters such as k, n to number of disks and numer of tolerable disk failures and provide a way to understand fault tolerance numbers as in MDS codes (such as Jerasure or Intel's ISA libraries which are based on RS code implementions).
+- [x] genChecks: This utility function is crucial for two different important functionalities: (1) fast/efficient repair/rebuild of data and (2) seemless on-the-fly update. 
 
 # Installation
 Installation from the source: There are four directories of source code:
@@ -48,6 +48,12 @@ This will install the library into your machine's lib directory, most probably /
 The configuration process assumes shared objects are searched for in /usr/local/lib. If this is not the case on your system, you can specify a search path at configuration time. Alternatively if you receive the following error when you try to execute one of the main functions of the library to do encoding or decoding, setting the LD_LIBRARY_PATH to installed directory (For instance /usr/local/lib) and exporting it might help. Otherwise, let me know the specifics of the problem, I will give my own shot.
 
 *error while loading shared libraries: libfounsure.so.2: cannot open shared object file: No such file or directory*
+
+# Tests
+### Encode Example
+```bash
+founsureEnc-f  testfile.txt  -k  500  -n  1000  -t  512  -d’FiniteDist’ -p ’ArrayLDPC’ -s 10 -v
+```
 
 ## Reference
 
