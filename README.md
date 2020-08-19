@@ -51,7 +51,7 @@ The configuration process assumes shared objects are searched for in /usr/local/
 
 # Tests
 #### Encode Example
-The following command will encode a test file testfile.txt with k=500 data chunks with each chunk occupying t=512 bytes. The encoder generates n=1000 coding chunks using $d=$`FiniteDist' degree distribution and p=`ArrayLDPC' precoding. Finally, generated chunks are striped/written to $s=10$ distinct files for default disk/drive allocation under Coding directory.
+The following command will encode a test file testfile.txt with k=500 data chunks with each chunk occupying t=512 bytes. The encoder generates n=1000 coding chunks using d="FiniteDist" degree distribution and p="ArrayLDPC" precoding. Finally, generated chunks are striped/written to s=10 distinct files for default disk/drive allocation under Coding directory.
 ```bash
 founsureEnc-f  testfile.txt  -k  500  -n  1000  -t  512  -d’FiniteDist’ -p ’ArrayLDPC’ -s 10 -v
 ```
