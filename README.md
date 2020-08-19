@@ -1,3 +1,4 @@
+![Founsure](https://github.com/suaybarslan/founsure/blob/master/Images/Founsure10.png)
 # Founsure 1.0
 An Erasure Code Library with Efficient Repair and Update Features: Version 1.0
 
