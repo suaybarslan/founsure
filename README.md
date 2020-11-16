@@ -99,7 +99,7 @@ python founsure_unittest.py
 # Reference
 
 If you find this code useful in your work, we kindly request that you cite the following [paper](https://arxiv.org/abs/1702.07409):
-* Suayb S. Arslan (2017) Founsure 1.0: An Erasure Code Library with Efficient Repair and Update Features. arXiv preprint arXiv:1702.07409.
+* Founsure 1.0: An Erasure Code Library with Efficient Repair and Update Features. arXiv preprint arXiv:1702.07409.
 ```
 @article{arslan2017founsure,
   title={Founsure 1.0: An erasure code library with efficient repair and update features},
@@ -109,6 +109,7 @@ If you find this code useful in your work, we kindly request that you cite the f
 }
 ```
 You can find the theory behind the code construction, motivation for fountain codes, mathematical machinary for analysis as well as different application areas in the following comprehensive [paper](https://arxiv.org/abs/1402.6016):  
+* Incremental redundancy, fountain codes and advanced topics. arXiv preprint arXiv:1402.6016.
 ```
 @article{arslan2014incremental,
   title={Incremental redundancy, fountain codes and advanced topics},
