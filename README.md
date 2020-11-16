@@ -108,3 +108,13 @@ If you find this code useful in your work, we kindly request that you cite the f
   year={2017}
 }
 ```
+You can find the theory behind the code construction, motivation for fountain codes, mathematical machinary for analysis as well as different application areas in the following comprehensive [paper](https://arxiv.org/abs/1402.6016):  
+```
+@article{arslan2014incremental,
+  title={Incremental redundancy, fountain codes and advanced topics},
+  author={Arslan, Suayb S},
+  journal={arXiv preprint arXiv:1402.6016},
+  year={2014}
+}
+```
+
