@@ -99,7 +99,7 @@ python founsure_unittest.py
 # Reference
 
 If you find this code useful in your work, we kindly request that you cite the following [paper](https://arxiv.org/abs/1702.07409):
-* Founsure 1.0: An Erasure Code Library with Efficient Repair and Update Features. arXiv preprint arXiv:1702.07409.
+* Arslan, Şuayb Ş. "Founsure 1.0: An erasure code library with efficient repair and update features." SoftwareX 13 (2021): 100662.
 ```
 @article{arslan2021founsure,
   title={Founsure 1.0: An erasure code library with efficient repair and update features},
